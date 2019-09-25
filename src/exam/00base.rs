@@ -7,7 +7,7 @@
  */
 
 // winit 使用新的版本,使用方式原git例子有区别。
-use winit::{Event, EventsLoop, Window, WindowEvent, ControlFlow};
+use winit::{Event, EventsLoop, Window, WindowEvent, KeyboardInput, ControlFlow};
 
 // const
 const WIN_WIDTH: u32 = 800;
@@ -31,8 +31,23 @@ impl VkApp {
     pub fn run(el: &mut EventsLoop) {
         el.run_forever(|event |{
             match event {
-                Event::WindowEvent {event: WindowEvent::CloseRequested, ..} => {
-                    ControlFlow::Break
+                Event::WindowEvent {event, ..} => {
+                    match event {
+                        WindowEvent::CloseRequested => ControlFlow::Break,
+                        WindowEvent::KeyboardInput {input, ..} => {
+                            match input {
+                                KeyboardInput {virtual_keycode, state, ..} => {
+                                    // NOTE: 下面可以同时匹配2项，这个功能很强大。
+                                    match (virtual_keycode, state) {
+                                        (Some(winit::VirtualKeyCode::Escape), winit::ElementState::Released) => ControlFlow::Break,
+                                        _ => ControlFlow::Continue,
+                                    }
+                                },
+                                // | _ => ControlFlow::Continue,
+                            }
+                        },
+                        _ => ControlFlow::Continue,
+                    }
                 },
                 _ => ControlFlow::Continue,
             }
