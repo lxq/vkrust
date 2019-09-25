@@ -8,3 +8,8 @@ edition = "2018"
 
 [dependencies]
 winit = "0.19.3"
+
+
+[[bin]]
+name = "00"
+path = "src/exam/00base.rs"
