@@ -59,7 +59,7 @@ fn main() {
     println!("My Vulkan learning with Rust.");
 
     let mut el = EventsLoop::new();
-    // 惯例：不需要使用的变量，以下划线开始。
+    // NOTE: 惯例——不需要使用的变量，以下划线开始。
     let _win = VkApp::init(&el);
     VkApp::run(&mut el);
 
