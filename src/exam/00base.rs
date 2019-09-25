@@ -12,11 +12,15 @@ use winit::{Event, EventsLoop, Window, WindowEvent, KeyboardInput, ControlFlow};
 // const
 const WIN_WIDTH: u32 = 800;
 const WIN_HEIGHT: u32 = 600;
+// NOTE: static 说明这个变量生命周期和和运行程序一样长，&'static是对静态变量的引用。
 const WIN_TITLE: &'static str = "00 base";
 
+// NOTE: struct 定义成员变量。
 struct VkApp;
 
+// NOTE: impl 定义结构体的方法。
 impl VkApp {
+    // NOTE: 不带self的方法，相当于是类的静态方法。
     // 初始化设置
     fn init(el: &EventsLoop) -> Window {
         // Window::new(el).unwrap()
