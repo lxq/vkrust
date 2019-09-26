@@ -8,6 +8,8 @@ edition = "2018"
 
 [dependencies]
 winit = "0.19.3"
+# A very lightweight wrapper around Vulkan
+ash = "0.29.0"
 
 
 [[bin]]
