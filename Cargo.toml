@@ -11,7 +11,7 @@ winit = "0.19.3"
 # A very lightweight wrapper around Vulkan
 ash = "0.29.0"
 
-
+# 下面这种方式用于包中有多个crate的情况。
 [[bin]]
 name = "00"
 path = "src/exam/00base.rs"
