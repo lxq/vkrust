@@ -1,5 +1,5 @@
 [package]
-name = "rkrust"
+name = "vkrust"
 version = "0.1.0"
 authors = ["lxq <lxq@weetgo.com>"]
 edition = "2018"
@@ -15,3 +15,6 @@ ash = "0.29.0"
 [[bin]]
 name = "00"
 path = "src/exam/00base.rs"
+[[bin]]
+name = "01"
+path = "src/exam/01inst.rs"
